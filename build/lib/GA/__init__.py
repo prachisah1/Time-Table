@@ -72,9 +72,7 @@ class TimetableEngine:
             time_slots=self.config.time_slots,
             fixed_teacher_assignment=self.config.fixed_teacher_assignment or {}
         )
-
         timetable, updated_teacher = tg.create_timetable(self.config.total_generations)[:2]
-
         fitness = TimetableFitnessEvaluator(
             timetable=timetable,
             all_sections=list(tg.sections_manager.keys()),
@@ -251,7 +249,7 @@ if __name__ == "__main__":
             "3:30 - 4:25": 7,
         },
         fixed_teacher_assignment={
-            "A": {"TCS-531": "AB01", "TMA-502": "HP18"},
+            "A": {"TCS-531": "AB01", "TMA-502": "HP18"},  # section: {"subject": teacher}
             "B": {"TCS-503": "BJ10"}
         }
     )
